@@ -8,16 +8,22 @@ const init = async () => {
         port: 3000,
         host: 'localhost'
     });
-    await server.register({
-        name: 'hapi-router',
-        pkg: require('hapi-router'),
-        register: async function (server, options) {
-            options: {
-                routes: './app/**/router.js'
-            }
-        },
-   
-    });
+
+    async function registers() {
+      await server.register({
+        register: require('hapi-router'),
+        options: {
+          routes: 'src/app/**/Router.js'
+        }
+        },function (err) {
+            if (err) throw err;
+        }
+      );
+    }
+    
+    await registers()
+      .then(() => console.log('All the Plugins are added'))
+      .catch((err) => console.log('Server Error', err));
 
     await server.start();
 };

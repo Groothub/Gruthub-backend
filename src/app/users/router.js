@@ -13,6 +13,5 @@ module.exports = [{
                 username: Joi.string().require(),
                 password: Joi.string().require()
             })
-        }
     }
 }];

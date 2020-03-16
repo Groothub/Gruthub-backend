@@ -22,8 +22,9 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
+    "glob": "^7.1.6",
     "hapi": "^18.1.0",
     "hapi-router": "^3.5.1",
-    "routes": "^2.1.0"
+    "hapi-routes": "^5.0.3"
   }
 }
